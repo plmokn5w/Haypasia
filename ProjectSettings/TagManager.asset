@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Function
+  - Number
+  - Function_right
+  - Function_down
+  - Number_right
+  - Number_down
   layers:
   - Default
   - TransparentFX
