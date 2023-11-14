@@ -6,8 +6,10 @@ using System;
 public abstract class Block : MonoBehaviour
 {
     public Block nextBlock;
+    public Block funcBlock;
     public Block[] argBlocks;
     protected Type[] paramTypes;
+    public Block superiorBlock;
     public List<Block> subBlocks;
     public abstract void Function();
     public abstract object GetValue();
@@ -15,7 +17,7 @@ public abstract class Block : MonoBehaviour
 
 public abstract class GenericBlock<T> : Block
 {
-    public T Value { get; set; }
+    protected T Value { get; set; }
     public override object GetValue() { return Value; }
 }
 

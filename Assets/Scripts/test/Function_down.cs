@@ -33,7 +33,7 @@ public class Function_down : MonoBehaviour
             // 여기에 충돌했을 때의 로직 추가
             collision.gameObject.GetComponent<Drag>().isConnect = true;
             Debug.Log(collision.transform.localPosition);
-            collision.transform.localPosition =gameObject.transform.parent.transform.localPosition + new Vector3(0, -45, 0);
+            collision.transform.localPosition = gameObject.transform.parent.transform.localPosition + new Vector3(0, -45, 0);
             Debug.Log("Collision with another block: " + collision.gameObject.name);
         }
         
