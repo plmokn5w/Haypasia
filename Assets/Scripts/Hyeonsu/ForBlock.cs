@@ -11,7 +11,18 @@ public class ForBlock : GenericBlock<Procedure>
             goto Return;
         argBlocks[0].Function();
         argBlocks[1].Function();
-        while (argBlocks[1].GetValue() as bool? is true)
+        argBlocks[2].Function();
+        string key = argBlocks[0].GetValue() as string;
+        int First = 0, Second = 0;
+
+        int? first = argBlocks[1].GetValue() as int?;
+        if (first.HasValue)First = first.Value;
+
+        int? second = argBlocks[2].GetValue() as int?;
+        if (second.HasValue) Second = second.Value;
+
+        Variable.SetVariable(key,First);
+        while (Variable.GetVariable(key)<Second)
         {
             Block curBlock = subBlocks[0];
             while (curBlock is not null)
@@ -19,8 +30,8 @@ public class ForBlock : GenericBlock<Procedure>
                 curBlock.Function();
                 curBlock = curBlock.nextBlock;
             }
-            argBlocks[2].Function();
-            argBlocks[1].Function();
+            Variable.SetVariable(key, Variable.GetVariable(key)+1);
+            Debug.Log(Variable.GetVariable(key));
         }
         Return:
             Debug.Log("Æ÷Á¾·á");

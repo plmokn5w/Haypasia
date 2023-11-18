@@ -10,16 +10,22 @@ public class IfBlock : GenericBlock<Procedure>
         if (subBlocks.Count == 0)
             goto Return;
         argBlocks[0].Function();
-        if (argBlocks[0].GetValue() as bool? is true)
+        bool? Bool = argBlocks[0].GetValue() as bool?;
+        if (Bool.HasValue)
         {
-            Block curBlock = subBlocks[0];
-            while (curBlock is not null)
+            
+            if (Bool.Value)
             {
-                curBlock.Function();
-                curBlock = curBlock.nextBlock;
+                Block curBlock = subBlocks[0];
+                while (curBlock is not null)
+                {
+                    curBlock.Function();
+                    curBlock = curBlock.nextBlock;
+                }
             }
         }
-        nextBlock = nextBlock.nextBlock;
+        if (nextBlock is not null)
+            nextBlock = nextBlock.nextBlock;
         Return:
             Debug.Log("이프종료");
     }

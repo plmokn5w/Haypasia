@@ -7,6 +7,7 @@ public class MainBlock : GenericBlock<Procedure>
     public override void Function()
     {
         Debug.Log("메인실행");
+        Variable.init();
         if (subBlocks.Count == 0)
             goto Return;
         Block curBlock = subBlocks[0];
@@ -15,7 +16,8 @@ public class MainBlock : GenericBlock<Procedure>
             curBlock.Function();
             curBlock = curBlock.nextBlock;
         }
-        Return:
-            Debug.Log("메인종료");
+    Return:
+        Debug.Log("결과는:"+ItemBlock.GetHaveItem());
+        Debug.Log("메인종료");
     }
 }

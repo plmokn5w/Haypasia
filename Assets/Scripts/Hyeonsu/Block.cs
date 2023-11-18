@@ -13,12 +13,14 @@ public abstract class Block : MonoBehaviour
     public List<Block> subBlocks;
     public abstract void Function();
     public abstract object GetValue();
+
 }
 
 public abstract class GenericBlock<T> : Block
 {
     protected T Value { get; set; }
     public override object GetValue() { return Value; }
+    public void SetValue(T value) { Value = value; }
 }
 
 public class Procedure : object { }
