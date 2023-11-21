@@ -10,6 +10,9 @@ TagManager:
   - Function_down
   - Number_right
   - Number_down
+  - Dummy
+  - Right
+  - Down
   layers:
   - Default
   - TransparentFX
