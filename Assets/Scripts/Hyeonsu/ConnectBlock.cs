@@ -12,6 +12,7 @@ public class ConnectBlock : MonoBehaviour
 
             Vector3 newPosition = new Vector3(parentPosition.x + parentWidth, parentPosition.y, 0);
             transform.position = newPosition;
+            Debug.Log("right");
         }
         else if(collision.gameObject.CompareTag("Down")) {
             Transform parentTransform = collision.transform.parent;
@@ -20,6 +21,7 @@ public class ConnectBlock : MonoBehaviour
 
             Vector3 newPosition = new Vector3(parentPosition.x, parentPosition.y - parentHeight, 0);
             transform.position = newPosition;
+            Debug.Log("Down");
         }
     }
 }

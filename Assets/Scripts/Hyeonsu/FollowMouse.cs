@@ -8,24 +8,36 @@ public class FollowMouse : MonoBehaviour
 
     void Update()
     {
-        // 마우스 왼쪽 버튼이 클릭되었을 때
+        // 마우스 왼쪽 버튼을 누르면
         if (Input.GetMouseButtonDown(0))
         {
-            // 클릭된 경우 따라가기를 시작하거나 중지합니다.
-            isFollowing = !isFollowing;
-        }
+            // 마우스 위치에 대한 Ray를 생성
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
-        // 만약 따라가기가 활성화되어 있다면
-        if (isFollowing)
+            // Ray가 어떤 Collider와 충돌했는지 확인
+            if (hit.collider != null)
+            {
+                
+                if (hit.collider.gameObject.CompareTag("Block"))
+                {
+                    // 여기에 원하는 동작을 추가
+
+            
+                    transform.localPosition = mousePosition;
+                }
+            }
+        }
+    
+    /*
+        if (Input.GetMouseButton(0))
         {
-            // 현재 마우스 포인터의 위치를 가져옵니다.
             Vector3 mousePosition = Input.mousePosition;
 
-            // 마우스 포인터의 화면 좌표를 월드 좌표로 변환합니다.
-            //Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10f));
-
-            // 텍스트 상자의 위치를 마우스 포인터 위치로 설정합니다.
+            
             transform.position = mousePosition;
         }
+
+        */
     }
 }

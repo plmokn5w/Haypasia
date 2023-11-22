@@ -13,6 +13,7 @@ TagManager:
   - Dummy
   - Right
   - Down
+  - Block
   layers:
   - Default
   - TransparentFX
