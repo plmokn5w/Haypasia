@@ -7,9 +7,8 @@ public class AssignmentOperatorBlock : GenericBlock<Procedure>
     public override void Function()
     {
         Debug.Log("대입연산자실행");
-
-        argBlocks[0].Function();
-        argBlocks[1].Function();
+        argBlocks[0].DebugFunc();
+        argBlocks[1].DebugFunc();
         Debug.Log("대입연산자종료");
     }
 }

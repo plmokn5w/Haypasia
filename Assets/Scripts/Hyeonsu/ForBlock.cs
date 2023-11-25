@@ -9,9 +9,9 @@ public class ForBlock : GenericBlock<Procedure>
         Debug.Log("Æ÷½ÇÇà");
         if (subBlocks.Count == 0)
             goto Return;
-        argBlocks[0].Function();
-        argBlocks[1].Function();
-        argBlocks[2].Function();
+        argBlocks[0].DebugFunc();
+        argBlocks[1].DebugFunc();
+        argBlocks[2].DebugFunc();
         string key = argBlocks[0].GetValue() as string;
         int First = 0, Second = 0;
 
@@ -27,7 +27,7 @@ public class ForBlock : GenericBlock<Procedure>
             Block curBlock = subBlocks[0];
             while (curBlock is not null)
             {
-                curBlock.Function();
+                curBlock.DebugFunc();
                 curBlock = curBlock.nextBlock;
             }
             Variable.SetVariable(key, Variable.GetVariable(key)+1);
