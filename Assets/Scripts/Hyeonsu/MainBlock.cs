@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MainBlock : GenericBlock<Procedure>
 {
+    public static DebugStep redOne;
+    public void Start()
+    {
+        redOne = GameObject.Find("RedCircle").GetComponent<DebugStep>();
+    }
     public override void Function()
     {
         Debug.Log("메인실행");
@@ -13,7 +18,7 @@ public class MainBlock : GenericBlock<Procedure>
         Block curBlock = subBlocks[0];
         while (curBlock is not null)
         {
-            curBlock.Function();
+            curBlock.DebugFunc();
             curBlock = curBlock.nextBlock;
         }
     Return:
