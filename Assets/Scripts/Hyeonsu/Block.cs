@@ -13,13 +13,13 @@ public abstract class Block : MonoBehaviour
     public List<Block> subBlocks;
     public abstract void Function();
     public abstract object GetValue();
-    public void DebugOneStep(DebugStep debugStep)
+    public void DebugOneStep()
     {
-        debugStep.MoveToBlock(this);
+        MainBlock.redOne.MoveToBlock(this);
     }
     public void DebugFunc()
     {
-        DebugOneStep(MainBlock.redOne);
+        Invoke("DebugOneStep", 1f);
         Invoke("Function", 1f);
     }
 
