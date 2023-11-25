@@ -9,7 +9,7 @@ public class IfBlock : GenericBlock<Procedure>
         Debug.Log("이프실행");
         if (subBlocks.Count == 0)
             goto Return;
-        argBlocks[0].Function();
+        argBlocks[0].DebugFunc();
         bool? Bool = argBlocks[0].GetValue() as bool?;
         if (Bool.HasValue)
         {
@@ -19,7 +19,7 @@ public class IfBlock : GenericBlock<Procedure>
                 Block curBlock = subBlocks[0];
                 while (curBlock is not null)
                 {
-                    curBlock.Function();
+                    curBlock.DebugFunc();
                     curBlock = curBlock.nextBlock;
                 }
             }

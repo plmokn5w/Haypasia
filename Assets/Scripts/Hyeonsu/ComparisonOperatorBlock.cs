@@ -7,8 +7,8 @@ public class ComparisonOperatorBlock : GenericBlock<bool>
     public override void Function()
     {
         Debug.Log("비교연산자실행");
-        argBlocks[0].Function();
-        argBlocks[1].Function();
+        argBlocks[0].DebugFunc();
+        argBlocks[1].DebugFunc();
         int Left=0, Right=0;
 
         int? left = argBlocks[0].GetValue() as int?;
