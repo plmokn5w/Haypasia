@@ -13,7 +13,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public bool isConnect = false;
     void Start()
     {
-        // Collider2D ì¶”ê°€
+        // Collider2D ì¶”ê??
         if (GetComponent<Collider2D>() == null)
         {
             gameObject.AddComponent<BoxCollider2D>();
@@ -27,7 +27,8 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         //parrentAfterDrag = transform.parent;
         //transform.SetParent(transform.root);
         transform.SetAsLastSibling();
-        image.raycastTarget = false;
+        if (image is not null)
+            image.raycastTarget = false;
     }
     public void OnDrag(PointerEventData eventData) {
         Debug.Log("ing");
@@ -37,21 +38,22 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         Debug.Log("end");
         isDragging = false;
         //transform.SetParent(parrentAfterDrag);
-        image.raycastTarget = true;
+        if (image is not null)
+            image.raycastTarget = true;
     }
     /*
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (isDragging && collision.gameObject.CompareTag("Function_right"))
         {
-            // ì—¬ê¸°ì— ì¶©ëŒí–ˆì„ ë•Œì˜ ë¡œì§ ì¶”ê°€
+            // ?—¬ê¸°ì— ì¶©ëŒ?–ˆ?„ ?•Œ?˜ ë¡œì§ ì¶”ê??
             Debug.Log(collision.transform.localPosition);
             gameObject.transform.localPosition = collision.transform.localPosition + new Vector3(105, 0, 0);
             Debug.Log("Collision with another block: " + collision.gameObject.name);
         }
         else if (isDragging && collision.gameObject.CompareTag("Function_down"))
         {
-            // ì—¬ê¸°ì— ì¶©ëŒí–ˆì„ ë•Œì˜ ë¡œì§ ì¶”ê°€
+            // ?—¬ê¸°ì— ì¶©ëŒ?–ˆ?„ ?•Œ?˜ ë¡œì§ ì¶”ê??
             Debug.Log(collision.transform.localPosition);
             gameObject.transform.localPosition = collision.transform.localPosition + new Vector3(0, 40, 0);
             Debug.Log("Collision with another block: " + collision.gameObject.name);
