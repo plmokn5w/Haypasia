@@ -26,7 +26,6 @@ public class FollowMouse : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
         this.transform.position = eventData.position;
-        Debug.Log(mousePos);
         isDown = false;
         
     }
